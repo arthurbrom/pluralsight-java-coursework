@@ -1,1 +1,1 @@
-# pluralsight_java_coursework
+# pluralsight-java-coursework
