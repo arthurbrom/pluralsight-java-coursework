@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TitlecaseConverter">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/TitlecaseConverter/TitlecaseConverter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pluralsight-java-coursework">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/pluralsight_java_coursework_jar/pluralsight-java-coursework.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
