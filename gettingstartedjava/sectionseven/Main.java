@@ -47,9 +47,16 @@ public class Main {
         String output = i + " * " + j + " = " + result; // "2 * 3 = 6"
 
         // StringBuilder Class
-        String location = "Flordia";
+        String location = "Florida";
         int flightNumber = 175;
         StringBuilder sb = new StringBuilder(40);
+        sb.append("Flight Number: ");
+        sb.append(flightNumber);
+        sb.append(" going to ");
+        sb.append(location);
+        sb.append(" is now boarding.");
+        String outputFromStringBuilder = sb.toString();
+        System.out.println(outputFromStringBuilder);
 
 
     }

@@ -1,4 +1,4 @@
-package gettingstartedjava.sectionseven;
+package gettingstartedjava.sectioneight;
 
 import java.util.Scanner;
 
