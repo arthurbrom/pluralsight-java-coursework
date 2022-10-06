@@ -36,7 +36,7 @@ public class FormatFlags {
         iVal = 1234567;
         s1 = String.format("%d", iVal);  // 1234567
         s2 = String.format("%,d", iVal); // 1,234,567
-        s2 = String.format("%,.2f", iVal); // 1,234,567.00
+//        s2 = String.format("%,.2f", iVal); // 1,234,567.00
 
 
 
