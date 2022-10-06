@@ -1,10 +1,10 @@
-package gettingstartedjava.sectioneight;
+package gettingstartedjava.sectionnine;
 
 import java.util.Scanner;
 
 /**
  * To execute this code through the Command Line, open up CMD
- * [projectFolderName]\out\production\[projectFolderName]>java gettingstartedjava.sectioneight.StringCalcEngine
+ * [projectFolderName]\out\production\[projectFolderName]>java gettingstartedjava.sectionnine.StringCalcEngine
  * And then add your arguments or don't
  */
 
