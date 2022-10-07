@@ -1,5 +1,6 @@
 package gettingstartedjava.sectionnine;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
@@ -40,10 +41,19 @@ public class StringCalcEngine {
 
     private static void performOperation(String[] parts) {
         char opCode = opCodeFromString(parts[0]);
-        double leftVal = valueFromWord(parts[1]);
-        double rightVal = valueFromWord(parts[2]);
-        double result = execute(opCode, leftVal, rightVal);
-        displayResult(opCode, leftVal, rightVal, result);
+        if(opCode == 'w')
+            handleWhen(parts);
+        else {
+            double leftVal = valueFromWord(parts[1]);
+            double rightVal = valueFromWord(parts[2]);
+            double result = execute(opCode, leftVal, rightVal);
+            displayResult(opCode, leftVal, rightVal, result);
+        }
+    }
+
+    private static void handleWhen(String[] parts) {
+        LocalDate startDate = LocalDate.parse(parts[1]);
+        long daysToAdd = (long) valueFromWord(parts[2]); // this is a cast to convert double to long
     }
 
     private static void displayResult(char opCode, double leftVal, double rightVal, double result) {
@@ -118,11 +128,16 @@ public class StringCalcEngine {
         return opCode;
     }
 
+    /**
+     * This method takes the word from the input
+     * @param word
+     * @return
+     */
     static double valueFromWord(String word){
         String[] numberWords = {
                 "zero", "one", "two", "three", "four", "five",
                 "six", "seven", "eight", "nine"
-        };
+        }; // this is an array, so the index starts at 0.
         double value = 0d;
         for(int index = 0; index < numberWords.length; index++){
             if ((word.equals(numberWords[index]))){
