@@ -41,8 +41,9 @@ public class StringCalcEngine {
 
     private static void performOperation(String[] parts) {
         char opCode = opCodeFromString(parts[0]);
-        if(opCode == 'w')
-            handleWhen(parts);
+        if(opCode == 'w') // handleWhen() to consider time
+            handleWhen(parts); // input something like "when 2022-12-25 seven"
+            // result may be output as "2022-12-25 plus 7 days is 2023-01-01"
         else {
             double leftVal = valueFromWord(parts[1]);
             double rightVal = valueFromWord(parts[2]);
@@ -54,6 +55,9 @@ public class StringCalcEngine {
     private static void handleWhen(String[] parts) {
         LocalDate startDate = LocalDate.parse(parts[1]);
         long daysToAdd = (long) valueFromWord(parts[2]); // this is a cast to convert double to long
+        LocalDate newDate = startDate.plusDays(daysToAdd);
+        String output = String.format("%s plus %d days is %s", startDate, daysToAdd, newDate);
+        System.out.println(output);
     }
 
     private static void displayResult(char opCode, double leftVal, double rightVal, double result) {
@@ -70,9 +74,9 @@ public class StringCalcEngine {
 
         // instead of having all of that...
         String output = String.format("%f %c %f = %f", leftVal, symbol, rightVal, result);
+        // System.out.println(output);
         // or having it rounded to 3 decimals...
         String output2 = String.format("%.3f %c %.3f = %.3f", leftVal, symbol, rightVal, result);
-        System.out.println(output);
         System.out.println(output2);
     }
 
@@ -99,19 +103,19 @@ public class StringCalcEngine {
     }
 
     static double execute(char opCode, double leftVal, double rightVal){
-        // stuff
+        // TODO in the future is using an enhanced switch @url(https://www.vojtechruzicka.com/java-enhanced-switch/)
         double result;
         switch (opCode){
-            case 'a':
+            case '+','a':
                 result = leftVal + rightVal;
                 break;
-            case 's':
+            case '-','s':
                 result = leftVal - rightVal;
                 break;
-            case 'm':
+            case '*','m':
                 result = leftVal * rightVal;
                 break;
-            case 'd':
+            case '/','d':
                 result = rightVal != 0 ? leftVal / rightVal : 0.0d;
                 break;
             default:
@@ -123,28 +127,27 @@ public class StringCalcEngine {
     }
 
     static char opCodeFromString(String operationName){
-        char opCode = operationName.charAt(0);
-        // multiply, add, subtract, divide
-        return opCode;
+        return operationName.charAt(0);
+        // this uses a char - multiply, add, subtract, divide
     }
 
     /**
      * This method takes the word from the input
-     * @param word
-     * @return
      */
     static double valueFromWord(String word){
         String[] numberWords = {
                 "zero", "one", "two", "three", "four", "five",
                 "six", "seven", "eight", "nine"
         }; // this is an array, so the index starts at 0.
-        double value = 0d;
+        double value = -1d;
         for(int index = 0; index < numberWords.length; index++){
             if ((word.equals(numberWords[index]))){
                 value = index;
                 break; // using break exits the loop
             }
         }
+        if(value == -1d)
+            value = Double.parseDouble(word);
         return value;
     }
 }
