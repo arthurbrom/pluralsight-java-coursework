@@ -1,7 +1,7 @@
 package programmingdatestimes.sectiontwo;
 
 /**
- * Demo Application TODO List, but with a difference
+ * Demo Application like a TO-DO List, but with a difference
  * Starting point is a work schedule
  *      - Including fixed events, like meetings
  * User guesses the duration of each task
